@@ -36,10 +36,6 @@ const curve = (peak, curveWidth = defaults.curveWidth) => (
 const raise = (context, peak, amount, options = {}) => {
     if(!(context instanceof CanvasRenderingContext2D)) {
         throw new Error("Context is not of type CanvasRenderingContext2D");
-    } else if(!(peak instanceof Number)) {
-        throw new Error("Peak is not of type Number.");
-    } else if(!(amount instanceof Number)) {
-        throw new Error("Amount is not of type Number.");
     } else {
         const curveWidth = options.curveWidth || defaults.curveWidth;
 
@@ -78,8 +74,6 @@ const raise = (context, peak, amount, options = {}) => {
 const setHighlights = (context, value, maxSum = defaults.maxSum) => {
     if(!(context instanceof CanvasRenderingContext2D)) {
         throw new Error("Context is not of type CanvasRenderingContext2D");
-    } else if(!(value instanceof Number)) {
-        throw new Error("Value is not of type Number")
     } else {
         raise({
             context,
@@ -98,8 +92,6 @@ const setHighlights = (context, value, maxSum = defaults.maxSum) => {
 const setMidtones = (context, value, maxSum = defaults.maxSum) => {
     if(!(context instanceof CanvasRenderingContext2D)) {
         throw new Error("Context is not of type CanvasRenderingContext2D");
-    } else if(!(value instanceof Number)) {
-        throw new Error("Value is not of type Number")
     } else {
         raise({
             context,
@@ -118,8 +110,6 @@ const setMidtones = (context, value, maxSum = defaults.maxSum) => {
 const setShadows = (context, value, maxSum = defaults.maxSum) => {
     if(!(context instanceof CanvasRenderingContext2D)) {
         throw new Error("Context is not of type CanvasRenderingContext2D");
-    } else if(!(value instanceof Number)) {
-        throw new Error("Value is not of type Number")
     } else {
         raise({
             context,
