@@ -72,11 +72,7 @@ const raise = (context, peak, amount, options = {}) => {
  * @param {number} maxSum The maximum value of the combined RGB channels (optional)
  */
 const setHighlights = (context, value, maxSum = defaults.maxSum) => 
-    raise({
-        context,
-        peak: maxSum / (4 / 3),
-        amount: value
-    });
+    raise(context, maxSum / (4 / 3), value);
 
 /**
  * 
@@ -85,11 +81,7 @@ const setHighlights = (context, value, maxSum = defaults.maxSum) =>
  * @param {maxSum} maxSum The maximum value of the combined RGB channels (optional)
  */
 const setMidtones = (context, value, maxSum = defaults.maxSum) => 
-    raise({
-        context,
-        peak: maxSum / 2,
-        amount: value - 50
-    });
+    raise(context, maxSum / 2, value);
 
 /**
  * 
@@ -98,10 +90,6 @@ const setMidtones = (context, value, maxSum = defaults.maxSum) =>
  * @param {number} maxSum The maximum value of the combined RGB channels (optional)
  */
 const setShadows = (context, value, maxSum = defaults.maxSum) =>
-    raise({
-        context,
-        peak: maxSum / 4,
-        amount: value - 50
-    });
+    raise(context, maxSum / 4, value);
 
 module.exports = {raise, setHighlights, setMidtones, setShadows};
