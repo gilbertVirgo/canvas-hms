@@ -8,17 +8,17 @@ npm install canvas-hms
 
 ## Import
 #### ES6/Babel
-```
+```javascript
 import {setHighlights, setMidtones, setShadows} from "canvas-hms";
 ```
 
 #### ES5
-```
+```javascript
 const {setHighlights, setMidtones, setShadows} = require("canvas-hms");
 ```
 
 ## Usage
-```
+```javascript
 // Get context
 context.drawImage(myImage, 0, 0, canvas.width, canvas.height);
 
