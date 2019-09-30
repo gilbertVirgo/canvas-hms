@@ -71,17 +71,12 @@ const raise = (context, peak, amount, options = {}) => {
  * @param {number} value The value
  * @param {number} maxSum The maximum value of the combined RGB channels (optional)
  */
-const setHighlights = (context, value, maxSum = defaults.maxSum) => {
-    if(!(context instanceof CanvasRenderingContext2D)) {
-        throw new Error("Context is not of type CanvasRenderingContext2D");
-    } else {
-        raise({
-            context,
-            peak: maxSum / (4 / 3),
-            amount: value
-        });
-    }
-}
+const setHighlights = (context, value, maxSum = defaults.maxSum) => 
+    raise({
+        context,
+        peak: maxSum / (4 / 3),
+        amount: value
+    });
 
 /**
  * 
@@ -89,17 +84,12 @@ const setHighlights = (context, value, maxSum = defaults.maxSum) => {
  * @param {number} value A value between -1 and 1
  * @param {maxSum} maxSum The maximum value of the combined RGB channels (optional)
  */
-const setMidtones = (context, value, maxSum = defaults.maxSum) => {
-    if(!(context instanceof CanvasRenderingContext2D)) {
-        throw new Error("Context is not of type CanvasRenderingContext2D");
-    } else {
-        raise({
-            context,
-            peak: maxSum / 2,
-            amount: value - 50
-        });
-    }
-}
+const setMidtones = (context, value, maxSum = defaults.maxSum) => 
+    raise({
+        context,
+        peak: maxSum / 2,
+        amount: value - 50
+    });
 
 /**
  * 
@@ -107,16 +97,11 @@ const setMidtones = (context, value, maxSum = defaults.maxSum) => {
  * @param {number} value A value between -1 and 1
  * @param {number} maxSum The maximum value of the combined RGB channels (optional)
  */
-const setShadows = (context, value, maxSum = defaults.maxSum) => {
-    if(!(context instanceof CanvasRenderingContext2D)) {
-        throw new Error("Context is not of type CanvasRenderingContext2D");
-    } else {
-        raise({
-            context,
-            peak: maxSum / 4,
-            amount: value - 50
-        });
-    }   
-}
+const setShadows = (context, value, maxSum = defaults.maxSum) =>
+    raise({
+        context,
+        peak: maxSum / 4,
+        amount: value - 50
+    });
 
 module.exports = {raise, setHighlights, setMidtones, setShadows};
