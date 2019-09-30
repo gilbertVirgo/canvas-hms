@@ -13,7 +13,7 @@ const clamp = (number, min, max) => {
     number = number <= max ? number : max;
     number = number >= min ? number : min;
 
-    return n;
+    return number;
 }
 
 /**
