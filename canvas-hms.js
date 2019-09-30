@@ -81,7 +81,8 @@ const setHighlights = (context, value, maxSum = defaults.maxSum) => {
     } else if(!(value instanceof Number)) {
         throw new Error("Value is not of type Number")
     } else {
-        context.raiseAtPeak({
+        raise({
+            context,
             peak: maxSum / (4 / 3),
             amount: value
         });
@@ -100,7 +101,8 @@ const setMidtones = (context, value, maxSum = defaults.maxSum) => {
     } else if(!(value instanceof Number)) {
         throw new Error("Value is not of type Number")
     } else {
-        context.raiseAtPeak({
+        raise({
+            context,
             peak: maxSum / 2,
             amount: value - 50
         });
@@ -119,9 +121,12 @@ const setShadows = (context, value, maxSum = defaults.maxSum) => {
     } else if(!(value instanceof Number)) {
         throw new Error("Value is not of type Number")
     } else {
-        context.raiseAtPeak({
+        raise({
+            context,
             peak: maxSum / 4,
             amount: value - 50
         });
     }   
 }
+
+module.exports = {raise, setHighlights, setMidtones, setShadows};

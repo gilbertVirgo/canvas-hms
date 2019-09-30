@@ -1,0 +1,28 @@
+{
+  "name": "canvas-hms",
+  "version": "1.0.0",
+  "description": "A super lightweight library for setting the highlights, midtones and shadows for images drawn on HTML5 Canvas.",
+  "main": "canvas-hms.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilbertVirgo/canvas-hms.git"
+  },
+  "keywords": [
+    "canvas",
+    "html5",
+    "javascript",
+    "highlights",
+    "midtones",
+    "shadows",
+    "filter"
+  ],
+  "author": "Gilbert Virgo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gilbertVirgo/canvas-hms/issues"
+  },
+  "homepage": "https://github.com/gilbertVirgo/canvas-hms#readme"
+}
