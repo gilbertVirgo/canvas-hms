@@ -55,9 +55,9 @@ const raise = (context, peak, amount, options = {}) => {
             if((sum > (peak - (curveWidth / 2))) && (sum < (peak + (curveWidth / 2)))) {
                 op = amount * curve(sum - peak, curveWidth);
 
-                data[i] = clamp(r + op, 0, 255);
-                data[i + 1] = clamp(g + op, 0, 255);
-                data[i + 2] = clamp(b + op, 0, 255);
+                data[index] = clamp(r + op, 0, 255);
+                data[index + 1] = clamp(g + op, 0, 255);
+                data[index + 2] = clamp(b + op, 0, 255);
             }
         }
 
