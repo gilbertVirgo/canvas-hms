@@ -92,7 +92,7 @@ const setHighlights = (context, value, maxSum = defaults.maxSum) => {
  * 
  * @param {object} context 
  * @param {number} value A value between -1 and 1
- * @param {maxSum} value The maximum value of the combined RGB channels (optional)
+ * @param {maxSum} maxSum The maximum value of the combined RGB channels (optional)
  */
 const setMidtones = (context, value, maxSum = defaults.maxSum) => {
     if(!(context instanceof CanvasRenderingContext2D)) {
