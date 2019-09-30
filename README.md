@@ -22,7 +22,13 @@ const {setHighlights, setMidtones, setShadows} = require("canvas-hms");
 // Get context
 context.drawImage(myImage, 0, 0, canvas.width, canvas.height);
 
-setHighlights(context, 50);
-setMidtones(context, -20);
-setShadows(context, 15);
+setHighlights(context, 30);
+setMidtones(context, 20);
+setShadows(context, -15);
 ```
+
+#### Before
+<img alt="Before filter" src="./assets/before.png"/>
+
+#### After
+<img alt="After filter" src="./assets/after.png"/>
