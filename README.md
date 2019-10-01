@@ -37,4 +37,10 @@ HMS.setShadows(-15);
 <img alt="After filter" src="./assets/after.png"/>
 
 ## How it works
-The function 
+The equation used is a cheap approximation of a tone curve.
+
+#### Tone curve example
+<img alt="Tone curve" src="./assets/tone-curve.jpg"/>
+
+#### Approximation
+<img alt="Approximation" src="./assets/approximation.png"/>
