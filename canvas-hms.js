@@ -10,10 +10,18 @@ const curve = (peak, curveWidth) => (
     (peak + (curveWidth / 2))
 ) / -Math.pow(curveWidth / 2, 2);
 
-function HMS() {
-    this.defaults = {maxSum: 765, curveWidth: 765 / 2};
+class HMS {
+    constructor({canvas, defaults = null}) {
+        this.canvas = canvas;
+        this.context = canvas.getContext("2d");
 
-    this.raise = function({peak, amount, options}) {
+        this.defaults = {maxSum: 765, curveWidth: 765 / 2};
+
+        if(defaults !== null)
+            Object.keys(defaults).forEach(key => this.defaults[key] = defaults[key]);
+    }
+
+    raise({peak, amount, options}) {
         const {context, canvas} = this;
         const {width, height} = canvas;
         const curveWidth = options.curveWidth || this.defaults.curveWidth;
@@ -41,27 +49,16 @@ function HMS() {
         context.putImageData(image, 0, 0);
     }
 
-    this.setHighlights = function({amount, maxSum = this.defaults.maxSum}) {
+    setHighlights({amount, maxSum = this.defaults.maxSum}) {
         this.raise(maxSum / (4 / 3), amount); 
-    };
+    }
 
-    this.setMidtones = function({amount, maxSum = this.defaults.maxSum}) {
+    setMidtones({amount, maxSum = this.defaults.maxSum}) {
         this.raise(maxSum / 2, amount); 
-    };
+    }
     
-    this.setShadows = function({amount, maxSum = this.defaults.maxSum}) {
+    setShadows({amount, maxSum = this.defaults.maxSum}) {
         this.raise(maxSum / 4, amount); 
-    };
-
-    this.init = function(context, defaults = null) {
-        if(!(context instanceof CanvasRenderingContext2D))
-            throw new Error("Context is not of type CanvasRenderingContext2D");
-
-        if(defaults !== null)
-            Object.keys(defaults).forEach(key => this.defaults[key] = defaults[key]);
-
-        this.context = context;
-        this.canvas = context.canvas;
     }
 }
 
