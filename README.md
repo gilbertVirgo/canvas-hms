@@ -25,9 +25,9 @@ context.drawImage(myImage, 0, 0, canvas.width, canvas.height);
 const options = {curveWidth: 765 / 3};
 const hms = new HMS({canvas: myCanvasElement, options});
 
-HMS.setHighlights(30);
-HMS.setMidtones(15);
-HMS.setShadows(-15);
+hms.setHighlights(30);
+hms.setMidtones(15);
+hms.setShadows(-15);
 ```
 
 #### Before
