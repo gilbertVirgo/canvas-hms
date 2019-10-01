@@ -9,22 +9,25 @@ npm install canvas-hms
 ## Import
 #### ES6/Babel
 ```javascript
-import {setHighlights, setMidtones, setShadows} from "canvas-hms";
+import HMS from "canvas-hms";
 ```
 
 #### ES5
 ```javascript
-const {setHighlights, setMidtones, setShadows} = require("canvas-hms");
+const HMS = require("canvas-hms");
 ```
 
 ## Usage
 ```javascript
-// Get context
+// Do some canvas magic...
 context.drawImage(myImage, 0, 0, canvas.width, canvas.height);
 
-setHighlights(context, 30);
-setMidtones(context, 20);
-setShadows(context, -15);
+const options = {curveWidth: 765 / 3};
+const hms = new HMS({canvas: myCanvasElement, options});
+
+HMS.setHighlights(30);
+HMS.setMidtones(15);
+HMS.setShadows(-15);
 ```
 
 #### Before
