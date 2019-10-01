@@ -1,6 +1,6 @@
 {
   "name": "canvas-hms",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A super lightweight library for setting the highlights, midtones and shadows for images drawn on HTML5 Canvas.",
   "main": "canvas-hms.js",
   "scripts": {
