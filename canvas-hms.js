@@ -48,16 +48,16 @@ class HMS {
         context.putImageData(image, 0, 0);
     }
 
-    setHighlights({amount, maxSum = this.options.maxSum}) {
-        this.raise(maxSum / (4 / 3), amount); 
+    setHighlights(amount, maxSum = this.options.maxSum) {
+        this.raise({peak: maxSum / (4 / 3), amount}); 
     }
 
-    setMidtones({amount, maxSum = this.options.maxSum}) {
-        this.raise(maxSum / 2, amount); 
+    setMidtones(amount, maxSum = this.options.maxSum) {
+        this.raise({peak: maxSum / 2, amount}); 
     }
     
-    setShadows({amount, maxSum = this.options.maxSum}) {
-        this.raise(maxSum / 4, amount); 
+    setShadows(amount, maxSum = this.options.maxSum) {
+        this.raise({peak: maxSum / 4, amount}); 
     }
 }
 
