@@ -1,14 +1,3 @@
-const defaults = {
-    maxSum: 765,
-    curveWidth: 765 / 2
-}
-
-/**
- * 
- * @param {number} number The number to clamp
- * @param {number} min 
- * @param {number} max 
- */
 const clamp = (number, min, max) => {
     number = number <= max ? number : max;
     number = number >= min ? number : min;
@@ -16,36 +5,24 @@ const clamp = (number, min, max) => {
     return number;
 }
 
-/**
- * 
- * @param {number} peak The peak of the parabolic curve 
- * @param {number} curveWidth The width of the parabolic curve
- */
-const curve = (peak, curveWidth = defaults.curveWidth) => (
+const curve = (peak, curveWidth) => (
     (peak - (curveWidth / 2)) * 
     (peak + (curveWidth / 2))
 ) / -Math.pow(curveWidth / 2, 2);
 
-/**
- * 
- * @param {object} context 
- * @param {number} peak The peak of the parabolic curve
- * @param {number} amount The amplitude (?) of the curve
- * @param {object} options Advanced options
- */
-const raise = (context, peak, amount, options = {}) => {
-    if(!(context instanceof CanvasRenderingContext2D)) {
-        throw new Error("Context is not of type CanvasRenderingContext2D");
-    } else {
-        const curveWidth = options.curveWidth || defaults.curveWidth;
+function HMS() {
+    this.defaults = {maxSum: 765, curveWidth: 765 / 2};
 
-        const {canvas: {width, height}} = context;
+    this.raise = function({peak, amount, options}) {
+        const {context, canvas} = this;
+        const {width, height} = canvas;
+        const curveWidth = options.curveWidth || this.defaults.curveWidth;
         const image = context.getImageData(0, 0, width, height);
         const {data} = image;
 
-        let r, g, b, sum, op;
+        let r, g, b, sum, op, index = 0;
 
-        for(let index = 0; index < data.length; index += 4) {
+        for(index; index < data.length; index += 4) {
             r = data[index];
             g = data[index + 1];
             b = data[index + 2];
@@ -63,33 +40,29 @@ const raise = (context, peak, amount, options = {}) => {
 
         context.putImageData(image, 0, 0);
     }
+
+    this.setHighlights = function({amount, maxSum = this.defaults.maxSum}) {
+        this.raise(maxSum / (4 / 3), amount); 
+    };
+
+    this.setMidtones = function({amount, maxSum = this.defaults.maxSum}) {
+        this.raise(maxSum / 2, amount); 
+    };
+    
+    this.setShadows = function({amount, maxSum = this.defaults.maxSum}) {
+        this.raise(maxSum / 4, amount); 
+    };
+
+    this.init = function(context, defaults = null) {
+        if(!(context instanceof CanvasRenderingContext2D))
+            throw new Error("Context is not of type CanvasRenderingContext2D");
+
+        if(defaults !== null)
+            Object.keys(defaults).forEach(key => this.defaults[key] = defaults[key]);
+
+        this.context = context;
+        this.canvas = context.canvas;
+    }
 }
 
-/**
- * 
- * @param {object} context 
- * @param {number} value The value
- * @param {number} maxSum The maximum value of the combined RGB channels (optional)
- */
-const setHighlights = (context, value, maxSum = defaults.maxSum) => 
-    raise(context, maxSum / (4 / 3), value);
-
-/**
- * 
- * @param {object} context 
- * @param {number} value A value between -1 and 1
- * @param {maxSum} maxSum The maximum value of the combined RGB channels (optional)
- */
-const setMidtones = (context, value, maxSum = defaults.maxSum) => 
-    raise(context, maxSum / 2, value);
-
-/**
- * 
- * @param {object} context 
- * @param {number} value A value between -1 and 1
- * @param {number} maxSum The maximum value of the combined RGB channels (optional)
- */
-const setShadows = (context, value, maxSum = defaults.maxSum) =>
-    raise(context, maxSum / 4, value);
-
-module.exports = {raise, setHighlights, setMidtones, setShadows};
+module.exports = HMS;

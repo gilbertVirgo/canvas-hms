@@ -32,3 +32,6 @@ setShadows(context, -15);
 
 #### After
 <img alt="After filter" src="./assets/after.png"/>
+
+## How it works
+The function 

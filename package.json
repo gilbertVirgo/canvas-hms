@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/gilbertVirgo/canvas-hms/issues"
   },
-  "homepage": "https://github.com/gilbertVirgo/canvas-hms#readme"
+  "homepage": "https://github.com/gilbertVirgo/canvas-hms#readme",
+  "devDependencies": {
+    "eslint": "^6.5.1"
+  }
 }
