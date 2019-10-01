@@ -40,7 +40,7 @@ HMS.setShadows(-15);
 The equation used is a cheap approximation of a tone curve.
 
 #### Tone curve example
-<img alt="Tone curve" src="./assets/tone-curve.jpg"/>
+<img alt="Tone curve" height="350" src="./assets/tone-curve.jpg"/>
 
 #### Approximation
-<img alt="Approximation" src="./assets/approximation.png"/>
+<img alt="Approximation" height="350" src="./assets/approximation.png"/>
