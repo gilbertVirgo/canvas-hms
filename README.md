@@ -25,9 +25,11 @@ context.drawImage(myImage, 0, 0, canvas.width, canvas.height);
 const options = {curveWidth: 765 / 3};
 const hms = new HMS({canvas: myCanvasElement, options});
 
-hms.setHighlights(30);
-hms.setMidtones(15);
+// Values inbetween -50 and +50
+hms.setHighlights(20);
+hms.setMidtones(10);
 hms.setShadows(-15);
+hms.setTemperature(10);
 ```
 
 #### Before
@@ -35,12 +37,3 @@ hms.setShadows(-15);
 
 #### After
 <img alt="After filter" src="./assets/after.png"/>
-
-## How it works
-The equation used is a cheap approximation of a tone curve.
-
-#### Tone curve example
-<img alt="Tone curve" height="350" src="./assets/tone-curve.jpg"/>
-
-#### Approximation
-<img alt="Approximation" height="350" src="./assets/approximation.png"/>
