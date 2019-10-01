@@ -21,10 +21,9 @@ class HMS {
             Object.keys(options).forEach(key => this.options[key] = options[key]);
     }
 
-    raise({peak, amount, options}) {
-        const {context, canvas} = this;
+    raise({peak, amount}) {
+        const {context, canvas, options: {curveWidth}} = this;
         const {width, height} = canvas;
-        const curveWidth = options.curveWidth || this.options.curveWidth;
         const image = context.getImageData(0, 0, width, height);
         const {data} = image;
 
